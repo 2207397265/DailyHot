@@ -1,3 +1,31 @@
+<template>
+  <footer>
+    <div class="copyright">
+     
+        class="author"
+        :depth="3"
+        v-html="packageJson.author"
+        @click="jumpLink(packageJson.github)"
+      />
+    </div>
+  
+  </footer>
+</template>
+
+<script setup>
+import packageJson from "@/../package.json";
+
+const icp = ref(import.meta.env.VITE_ICP ? import.meta.env.VITE_ICP : null);
+
+// 链接跳转
+const jumpLink = (url) => {
+  window.open(url);
+};
+</script>
+
+
+
+
 <style lang="scss" scoped>
 footer {
   height: 100px;
